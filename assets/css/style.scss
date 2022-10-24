@@ -12,6 +12,7 @@
 $primary : #f69d2d;
 $gray-1 : #e8e8e0;
 $gray-2 : #bab8a9;
+$bg-head-md-sm : #5e5452;
 $tab-ind-shadow-up : #6a6b66;
 $tab-ind-shadow-down : #f9f9f7;
 
@@ -200,6 +201,79 @@ header {
             --total-length: 70;
           }
         }
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: 992px) {
+  header {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 1.3rem;
+    background: linear-gradient(transparent, transparent 50%, $bg-head-md-sm 50%, $bg-head-md-sm);
+    background-size: 100% 200%;
+    
+    &.header-queries {
+      background-position: 100% 100%;
+    }
+
+    nav.navbar {
+      flex-direction: column;
+      position: absolute;
+      overflow: hidden;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      gap: 1rem;
+      background: $gray-1;
+      background-image: url(../images/map.png);
+      background-position: center;
+      background-size: cover;
+      padding: 2rem 0;
+      height: calc(100vh - 5rem);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      transition: .2s linear;
+
+      &.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+
+      .tab-indicator {
+        background: $gray-2;
+      }
+
+      a {
+        font-size: 1.1rem;
+        display: block;
+        width: 50%;
+      }
+    }
+
+    .menu-btn {
+      display: inline-block;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 0 .6rem;
+
+    .logo {
+      margin-left: .25rem;
+
+      img.clan-badge {
+        width: 45px;
+      }
+      
+      h3 {
+        font-size: .9rem;
       }
     }
   }

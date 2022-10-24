@@ -149,4 +149,65 @@ header .menu-btn label svg path.line--1, header .menu-btn label svg path.line--3
 }
 header .menu-btn label svg path.line--2 {
   --total-length: 70;
+}
+
+@media (max-width: 992px) {
+  header {
+    padding: 0 2rem;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    padding: 0 1.3rem;
+    background: linear-gradient(transparent, transparent 50%, #5e5452 50%, #5e5452);
+    background-size: 100% 200%;
+  }
+  header.header-queries {
+    background-position: 100% 100%;
+  }
+  header nav.navbar {
+    flex-direction: column;
+    position: absolute;
+    overflow: hidden;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    gap: 1rem;
+    background: #e8e8e0;
+    background-image: url(../images/map.png);
+    background-position: center;
+    background-size: cover;
+    padding: 2rem 0;
+    height: calc(100vh - 5rem);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.2s linear;
+  }
+  header nav.navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  header nav.navbar .tab-indicator {
+    background: #bab8a9;
+  }
+  header nav.navbar a {
+    font-size: 1.1rem;
+    display: block;
+    width: 50%;
+  }
+  header .menu-btn {
+    display: inline-block;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 0 0.6rem;
+  }
+  header .logo {
+    margin-left: 0.25rem;
+  }
+  header .logo img.clan-badge {
+    width: 45px;
+  }
+  header .logo h3 {
+    font-size: 0.9rem;
+  }
 }/*# sourceMappingURL=style.css.map */

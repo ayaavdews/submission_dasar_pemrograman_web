@@ -1,6 +1,5 @@
-window.onload = () => {
-  handleNavChange(document.querySelector('.navlink.active'))
-}
+window.onload = () => handleNavChange(document.querySelector('.navlink.active'))
+window.onresize = () => handleNavChange(document.querySelector('.navlink.active'));
 
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('nav')
@@ -15,15 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for(let i=0; i<navlinks.length; i++) {
     navlinks[i].addEventListener('click', function(e) {
-      if(window.matchMedia('(max-width: 768px)').matches) {
+      handleNavChange(this);
+      e.preventDefault()
+      // fitScroll(this.getAttribute('href'))
+    })
+  }
+
+  tabInd.addEventListener('transitionend', function(e) {
+    if(window.matchMedia('(max-width: 768px)').matches && nav.classList.contains('active')) {
+      if(e.propertyName === 'top') {
         headerQueries()
         menuBtn.checked = false
       }
-      handleNavChange(this);
-      e.preventDefault()
-      fitScroll(this.getAttribute('href'))
-    })
-  }
+    }
+  })
 })
 
 function handleNavChange(navlink) {
