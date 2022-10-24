@@ -13,5 +13,140 @@
   src: url(../font/clash-regular-webfont.woff2);
 }
 html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: #e8e8e0;
   font-family: clash-regular, Arial, Helvetica, sans-serif;
+}
+html::-webkit-scrollbar {
+  width: 0.3rem;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background: #f69d2d;
+  border-radius: 0.15rem;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  padding: 0 6%;
+  z-index: 10;
+  background: linear-gradient(transparent, transparent 50%, #e8e8e0 50%, #e8e8e0);
+  background-size: 100% 200%;
+  transition: background 0.35s;
+}
+header.shadow {
+  background-position: 100% 100%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+header.shadow nav .tab-indicator {
+  background: #bab8a9;
+}
+header.shadow nav .tab-indicator span:nth-of-type(2) {
+  background: rgba(255, 255, 255, 0.32);
+}
+header .logo, header nav {
+  display: flex;
+  align-items: center;
+}
+header .logo img.clan-badge {
+  width: 60px;
+  margin-right: 0.2rem;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.8));
+}
+header .logo h3 {
+  text-shadow: -1px 0 1px black, 1px 0 1px black, 0 -1px 1px black, 0 4px 1px black, -2px 4px 1px black, 2px 3px 2px black;
+  color: white;
+}
+header nav.navbar {
+  position: relative;
+}
+header nav.navbar a {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: white;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.35s ease-out;
+  text-shadow: -1px 0 1px black, 1px 0 1px black, 0 -1px 1px black, 0 3px 1px black, -2px 3px 1px black, 2px 2px 2px black;
+}
+header nav.navbar .tab-indicator {
+  position: absolute;
+  background: transparent;
+  z-index: 1;
+  border-radius: 0.35rem;
+  box-shadow: 0px -3px 2px #6a6b66;
+  transition: width 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4), left 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4), top 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+}
+header nav.navbar .tab-indicator span {
+  position: absolute;
+  top: 2px;
+  border-radius: 0.35rem;
+}
+header nav.navbar .tab-indicator span:nth-of-type(1) {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 2px 2px #f9f9f7;
+}
+header nav.navbar .tab-indicator span:nth-of-type(2) {
+  width: 94%;
+  height: 45%;
+  background: rgba(255, 255, 255, 0.42);
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .menu-btn {
+  display: none;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+header .menu-btn.cross label input[type=checkbox]:checked + svg .line--1, header .menu-btn.cross label input[type=checkbox]:checked + svg .line--3 {
+  --length: 22.627416998;
+}
+header .menu-btn.cross label input[type=checkbox]:checked + svg .line--2 {
+  --length: 0;
+}
+header .menu-btn label {
+  display: block;
+  cursor: pointer;
+  width: 90px;
+  height: 90px;
+}
+header .menu-btn label input[type=checkbox] {
+  display: none;
+}
+header .menu-btn label input[type=checkbox]:checked + svg .line--1, header .menu-btn label input[type=checkbox]:checked + svg .line--3 {
+  --offset: -94.1149185097;
+}
+header .menu-btn label input[type=checkbox]:checked + svg .line--2 {
+  --offset: -50;
+}
+header .menu-btn label svg path {
+  fill: none;
+  stroke: white;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.7));
+  --length: 24;
+  --offset: -38;
+  stroke-dasharray: var(--length) var(--total-length);
+  stroke-dashoffset: var(--offset);
+  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+header .menu-btn label svg path.line--1, header .menu-btn label svg path.line--3 {
+  --total-length: 126.64183044433594;
+}
+header .menu-btn label svg path.line--2 {
+  --total-length: 70;
 }/*# sourceMappingURL=style.css.map */

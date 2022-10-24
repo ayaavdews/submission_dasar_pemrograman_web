@@ -8,11 +8,199 @@
   box-sizing: border-box;
 }
 
+// Color
+$primary : #f69d2d;
+$gray-1 : #e8e8e0;
+$gray-2 : #bab8a9;
+$tab-ind-shadow-up : #6a6b66;
+$tab-ind-shadow-down : #f9f9f7;
+
+// Font
 @font-face {
   font-family: clash-regular;
   src: url(../font/clash-regular-webfont.woff2);
 }
 
+// Mixin 
+@mixin tmplTextShadow($y1: 4px, $y2: 3px, $color: black) {
+  text-shadow: -1px 0 1px $color, 
+               1px 0 1px $color,
+               0 -1px 1px $color,
+               0 $y1 1px $color,
+               -2px $y1 1px $color,
+               2px $y2 2px $color;
+}
+
 html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: $gray-1;
   font-family: clash-regular, Arial, Helvetica, sans-serif;
+
+  &::-webkit-scrollbar{
+    width:.3rem;
+  }
+  
+  &::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb{
+    background: $primary;
+    border-radius: .15rem;
+  }
+}
+
+header {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  padding: 0 6%;
+  z-index: 10;
+  background: linear-gradient(transparent, transparent 50%, $gray-1 50%, $gray-1);
+  background-size: 100% 200%;
+  transition: background .35s;
+
+  &.shadow {
+    background-position: 100% 100%;
+    box-shadow: 0 .5rem 1rem rgba(black, .2);
+
+    nav .tab-indicator {
+      background: $gray-2;
+
+      span:nth-of-type(2) {
+        background: rgba(white, .32);
+      }
+    }
+  }
+
+  .logo, nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    img.clan-badge {
+      width: 60px;
+      margin-right: .2rem;
+      filter: drop-shadow(2px 2px 3px rgba(black, .8));
+    }
+
+    h3 {
+      @include tmplTextShadow();
+      color: white;
+    }
+  }
+
+  nav.navbar {
+    position: relative;
+
+    a {
+      padding: .6rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      text-transform: capitalize;
+      color: white;
+      z-index: 2;
+      -webkit-tap-highlight-color: transparent;
+      transition: color .35s ease-out;
+      @include tmplTextShadow($y1: 3px, $y2: 2px);
+    }
+
+    .tab-indicator {
+      position: absolute;
+      background: transparent;
+      z-index: 1;
+      border-radius: .35rem;
+      box-shadow: 0px -3px 2px $tab-ind-shadow-up;
+      transition: width .5s cubic-bezier(.8, .5, .2, 1.4),
+                  left .5s cubic-bezier(.8, .5, .2, 1.4),
+                  top .5s cubic-bezier(.8, .5, .2, 1.4);
+
+      span {
+        position: absolute;
+        top: 2px;
+        border-radius: .35rem;
+
+        &:nth-of-type(1) {
+          width: 100%;
+          height: 100%;
+          box-shadow: 0px 2px 2px $tab-ind-shadow-down;
+        }
+
+        &:nth-of-type(2) {
+          width: 94%;
+          height: 45%;
+          background: rgba(white, .42);
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .menu-btn {
+    display: none;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+
+    &.cross {
+      label input[type="checkbox"]:checked + svg {
+        .line--1, .line--3 {
+          --length: 22.627416998;
+        }
+        .line--2 {
+          --length: 0;
+        }
+      }
+    }
+
+    label {
+      display: block;
+      cursor: pointer;
+      width: 90px;
+      height: 90px;
+
+      input[type="checkbox"] {
+        display: none;
+
+        &:checked + svg {
+          .line--1, .line--3 {
+            --offset: -94.1149185097;
+          }
+          .line--2 {
+            --offset: -50;
+          }
+        }
+      }
+
+      svg {
+        path {
+          fill: none;
+          stroke: white;
+          stroke-width: 4;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          filter: drop-shadow(1px 1px 2px rgba(black, .7));
+          --length: 24;
+          --offset: -38;
+          stroke-dasharray: var(--length) var(--total-length);
+          stroke-dashoffset: var(--offset);
+          transition: all .8s cubic-bezier(.645, .045, .355, 1);
+
+          &.line--1, &.line--3 {
+            --total-length: 126.64183044433594;
+          }
+
+          &.line--2 {
+            --total-length: 70;
+          }
+        }
+      }
+    }
+  }
 }
