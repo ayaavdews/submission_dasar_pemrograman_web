@@ -2,10 +2,16 @@ window.onload = () => handleNavChange(document.querySelector('.navlink.active'))
 window.onresize = () => handleNavChange(document.querySelector('.navlink.active'));
 
 document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('header')
   const nav = document.querySelector('nav')
   const navlinks = document.querySelectorAll('.navlink')
   const tabInd = document.querySelector('.tab-indicator')
   const menuBtn = document.querySelector('#menu-btn')
+
+  let HomeHeigt = document.querySelector('.home-title').offsetHeight
+  window.onscroll = () => {
+    (window.scrollY > HomeHeigt-50) ? header.classList.add('shadow') : header.classList.remove('shadow');
+  }
 
   menuBtn.addEventListener('click', () => {
     handleNavChange(document.querySelector('.navlink.active'))

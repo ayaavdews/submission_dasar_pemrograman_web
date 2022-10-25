@@ -12,6 +12,19 @@
   font-family: clash-regular;
   src: url(../font/clash-regular-webfont.woff2);
 }
+@keyframes bounceTop {
+  0%, 100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -47,10 +60,10 @@ header.shadow {
   background-position: 100% 100%;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
-header.shadow nav .tab-indicator {
+header.shadow nav.navbar .tab-indicator {
   background: #bab8a9;
 }
-header.shadow nav .tab-indicator span:nth-of-type(2) {
+header.shadow nav.navbar .tab-indicator span:nth-of-type(2) {
   background: rgba(255, 255, 255, 0.32);
 }
 header .logo, header nav {
@@ -151,12 +164,195 @@ header .menu-btn label svg path.line--2 {
   --total-length: 70;
 }
 
+main section {
+  padding: 2rem 6%;
+}
+main section h1.heading {
+  text-align: center;
+  color: white;
+  padding: 1rem 0;
+  font-size: 1.75rem;
+  text-shadow: -1px 0 1px black, 1px 0 1px black, 0 -1px 1px black, 0 4px 1px black, -2px 4px 1px black, 2px 3px 2px black;
+}
+main section h1.heading::after {
+  content: "";
+  display: block;
+  width: 5rem;
+  margin: 1rem auto 0;
+  border-radius: 8px;
+  border-bottom: 0.5rem solid #f69d2d;
+}
+main section h1.heading span {
+  color: #f69d2d;
+}
+main section#home {
+  display: grid;
+  grid-template-areas: "home-img home-img home-title" "home-img home-img home-val" "home-img home-img home-val";
+  padding-top: 5rem;
+  height: 100vh;
+  background-image: url(../images/bg_home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main section#home .home-image {
+  display: grid;
+  grid-area: home-img;
+  position: relative;
+  place-content: center;
+  width: 50vw;
+  height: 100%;
+}
+main section#home .home-image img.villager {
+  height: 60vh;
+  z-index: 1;
+  animation: bounceTop 3.5s ease infinite;
+}
+main section#home .home-image .circle {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+main section#home .home-image .circle::before {
+  content: "";
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  left: 23px;
+  top: 23px;
+  transform-origin: 150px 150px;
+  animation: rotate 8s linear infinite;
+}
+main section#home .home-title {
+  display: grid;
+  grid-area: home-title;
+  place-content: center start;
+}
+main section#home .home-title h1 {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: -1px 0 1px black, 1px 0 1px black, 0 -1px 1px black, 0 4px 1px black, -2px 4px 1px black, 2px 3px 2px black;
+}
+main section#home .home-title h1 span {
+  color: #f69d2d;
+}
+main section#home .home-title h1 span img {
+  display: none;
+}
+main section#home .home-val {
+  display: grid;
+  grid-area: home-val;
+  place-content: start;
+}
+main section#home .home-val p {
+  color: #fefefe;
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  text-shadow: -1px 0 1px black, 1px 0 1px black, 0 -1px 1px black, 0 4px 1px black, -2px 4px 1px black, 2px 3px 2px black;
+}
+main section#home .home-val .btn-getStarted .couche1 {
+  position: relative;
+  border-radius: 11px;
+  width: 15rem;
+  height: 5rem;
+  background: black;
+  margin: 1.5rem 0;
+  box-shadow: 0px 11px 2px #301C09;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+main section#home .home-val .btn-getStarted .couche1:active {
+  box-shadow: 0px 7px 2px #301C09;
+  transform: translateY(4px);
+}
+main section#home .home-val .btn-getStarted .couche1:active .couche2 {
+  box-shadow: 0px 5px 0px #AF6B06;
+}
+main section#home .home-val .btn-getStarted .couche1 .couche2 {
+  position: absolute;
+  border-radius: 10px;
+  width: 97%;
+  height: 95%;
+  background: #FDA80D;
+  transform: translate(-50%, -49%);
+  left: 50%;
+  top: 50%;
+  box-shadow: 0px 9px 0px #AF6B06;
+}
+main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 {
+  position: absolute;
+  border-radius: 10px;
+  width: 98%;
+  height: 92%;
+  background: none;
+  transform: translate(-50%, -48%);
+  left: 50%;
+  top: 50%;
+  box-shadow: 0px -4px 5px 0px #FFDC33;
+}
+main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 .couche3 {
+  position: absolute;
+  border-radius: 10px;
+  width: 96%;
+  height: 93%;
+  background: #ffbb2a;
+  transform: translate(-50%, -43%);
+  left: 50%;
+  top: 40%;
+  box-shadow: 0px 4px 3px 0px #FE8906;
+}
+main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 .couche3 .couche4 {
+  position: absolute;
+  border-radius: 10px;
+  width: 96%;
+  height: 50%;
+  background: #FFD053;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+}
+main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 .couche3 .couche4 .couche5 {
+  position: absolute;
+  border-radius: 45%;
+  width: 9px;
+  height: 11px;
+  background: #FFF1B6;
+  top: 11%;
+  right: 2%;
+}
+main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 .couche3 .couche4 .getStarted {
+  position: absolute;
+  text-decoration: none;
+  width: 100%;
+  top: 50%;
+  color: #fefefe;
+  text-align: center;
+  font-size: 1.2rem;
+  user-select: none;
+  text-shadow: -1px 0 1px #582E00, 1px 0 1px #582E00, 0 -1px 1px #582E00, 0 4px 1px #582E00, -2px 4px 1px #582E00, 2px 3px 2px #582E00;
+}
+
 @media (max-width: 992px) {
+  section {
+    padding: 2rem 2rem;
+  }
   header {
     padding: 0 2rem;
   }
 }
 @media (max-width: 768px) {
+  section {
+    padding: 2rem 1.3rem;
+  }
   header {
     padding: 0 1.3rem;
     background: linear-gradient(transparent, transparent 50%, #5e5452 50%, #5e5452);
@@ -196,8 +392,48 @@ header .menu-btn label svg path.line--2 {
   header .menu-btn {
     display: inline-block;
   }
+  main section#home .home-image img.villager {
+    height: 50vh;
+  }
+  main section#home .home-image .circle {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  main section#home .home-image .circle::before {
+    content: "";
+    height: 40px;
+    width: 40px;
+    left: 23px;
+    top: 23px;
+    transform-origin: 125px 125px;
+  }
+  main section#home .home-title {
+    padding: 0 0.85rem;
+  }
+  main section#home .home-title h1 {
+    font-size: 2rem;
+  }
+  main section#home .home-val {
+    padding: 0 0.85rem;
+  }
+  main section#home .home-val p {
+    font-size: 1rem;
+  }
+  main section#home .home-val .btn-getStarted .couche1 {
+    width: 12rem;
+    height: 4rem;
+  }
+  main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 .couche3 .couche4 .getStarted {
+    font-size: 1rem;
+  }
 }
 @media (max-width: 600px) {
+  section {
+    padding: 2rem 0.6rem;
+  }
   header {
     padding: 0 0.6rem;
   }
@@ -209,5 +445,65 @@ header .menu-btn label svg path.line--2 {
   }
   header .logo h3 {
     font-size: 0.9rem;
+  }
+  main section#home {
+    gap: 0.5rem;
+    grid-template-areas: "home-title home-title home-title" "home-img home-img home-img" "home-val home-val home-val";
+  }
+  main section#home .home-title {
+    padding-top: 1rem;
+    place-content: center;
+  }
+  main section#home .home-title h1 {
+    font-size: 1.8rem;
+  }
+  main section#home .home-title h1 span {
+    position: relative;
+  }
+  main section#home .home-title h1 span img {
+    display: inline-block;
+    position: absolute;
+    width: 28px;
+    top: -19px;
+    left: -5px;
+    transform: rotate(-6deg);
+  }
+  main section#home .home-image {
+    width: 100%;
+    height: 40vh;
+    place-content: end center;
+  }
+  main section#home .home-image img.villager {
+    height: 30vh;
+  }
+  main section#home .home-image .circle {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  main section#home .home-image .circle::before {
+    content: "";
+    height: 35px;
+    width: 35px;
+    left: 12px;
+    top: 12px;
+    transform-origin: 88px 88px;
+  }
+  main section#home .home-val {
+    height: 40vh;
+  }
+  main section#home .home-val p {
+    font-size: 1rem;
+    text-align: center;
+  }
+  main section#home .home-val .btn-getStarted .couche1 {
+    width: 15rem;
+    height: 4rem;
+    margin: 1.5rem auto;
+  }
+  main section#home .home-val .btn-getStarted .couche1 .couche2 .couche2-3 .couche3 .couche4 .getStarted {
+    font-size: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */
