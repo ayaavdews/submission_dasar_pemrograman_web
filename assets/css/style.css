@@ -37,6 +37,18 @@
     transform: rotate(360deg);
   }
 }
+@keyframes animate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -534,6 +546,221 @@ main section#clan .container article.detail .war-stat .details div span {
   display: block;
   color: white;
 }
+main section#joinUs {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: calc(100vh - 5rem);
+  background-image: linear-gradient(to left bottom, #021847, #023665, #0f5582, #28759c, #4697b5);
+}
+main section#joinUs .container {
+  display: flex;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+main section#joinUs .container .carousel {
+  display: flex;
+  position: relative;
+  padding: 0 1rem;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  flex: 50%;
+}
+main section#joinUs .container .carousel .carousel-item {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: carousel-animate-vertical 20s linear infinite;
+}
+@keyframes carousel-animate-vertical {
+  0% {
+    transform: translateY(100%) scale(0.2);
+    opacity: 0;
+    visibility: hidden;
+  }
+  2%, 10% {
+    transform: translateY(100%) scale(0.3);
+    opacity: 0.3;
+    visibility: visible;
+  }
+  12%, 20% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  22%, 30% {
+    transform: translateY(-100%) scale(0.3);
+    opacity: 0.4;
+    visibility: visible;
+  }
+  32% {
+    transform: translateY(-100%) scale(0.2);
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(-100%) scale(0.5);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(1) {
+  animation-delay: calc(2s * -1);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(2) {
+  animation-delay: calc(2s * 0);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(3) {
+  animation-delay: calc(2s * 1);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(4) {
+  animation-delay: calc(2s * 2);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(5) {
+  animation-delay: calc(2s * 3);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(6) {
+  animation-delay: calc(2s * 4);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(7) {
+  animation-delay: calc(2s * 5);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(8) {
+  animation-delay: calc(2s * 6);
+}
+main section#joinUs .container .carousel .carousel-item:nth-of-type(9) {
+  animation-delay: calc(2s * 7);
+}
+main section#joinUs .container .carousel .carousel-item:nth-last-of-type(1) {
+  animation-delay: calc(-2s * 2);
+}
+main section#joinUs .container .carousel .carousel-item img {
+  height: 55vh;
+}
+main section#joinUs .container .content {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-shadow: -1px 0 1px black, 1px 0 1px black, 0 -1px 1px black, 0 4px 1px black, -2px 4px 1px black, 2px 3px 2px black;
+}
+main section#joinUs .container .content h1.title {
+  font-size: 2.5rem;
+  padding: 2rem 0 1rem;
+  color: #fffdf0;
+}
+main section#joinUs .container .content p {
+  padding-bottom: 1.5rem;
+  color: #fffdf0;
+  font-size: 1.35rem;
+}
+main section#joinUs .container .content .btn-join {
+  display: inline-block;
+  font-size: 1.3rem;
+  box-shadow: 0 7px #1d6ad2;
+  color: white;
+  width: fit-content;
+  background-image: linear-gradient(to bottom, #4babff, #3aa0fd, #2b95fb, #1d8af8, #157ef4);
+  border-radius: 1rem;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: 1rem 4rem;
+}
+main section#joinUs .container .content .btn-join:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px #1d6ad2;
+}
+main section#joinUs .circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+main section#joinUs .circles li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 8s linear infinite;
+  bottom: -150px;
+}
+main section#joinUs .circles li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+main section#joinUs .circles li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+main section#joinUs .circles li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+main section#joinUs .circles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+main section#joinUs .circles li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+main section#joinUs .circles li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+main section#joinUs .circles li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+main section#joinUs .circles li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+main section#joinUs .circles li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+main section#joinUs .circles li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
 
 @media (max-width: 992px) {
   section {
@@ -541,6 +768,12 @@ main section#clan .container article.detail .war-stat .details div span {
   }
   header {
     padding: 0 2rem;
+  }
+  main section#joinUs .container .content h1.title {
+    font-size: 2rem;
+  }
+  main section#joinUs .container .content p {
+    font-size: 1rem;
   }
 }
 @media (max-width: 768px) {
@@ -627,6 +860,21 @@ main section#clan .container article.detail .war-stat .details div span {
     padding: 1rem 10% 0;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+  }
+  main section#joinUs .container .carousel {
+    padding: 0;
+  }
+  main section#joinUs .container .carousel .carousel-item {
+    width: 100%;
+  }
+  main section#joinUs .container .carousel .carousel-item img {
+    height: 47vh;
+  }
+  main section#joinUs .container .content {
+    padding: 0 1rem;
+  }
+  main section#joinUs .container .content h1.title {
+    font-size: 1.5rem;
   }
 }
 @media (max-width: 600px) {
@@ -717,5 +965,63 @@ main section#clan .container article.detail .war-stat .details div span {
   }
   main section#clan .container article.detail .war-stat .details {
     font-size: 0.85rem;
+  }
+  main section#joinUs .container {
+    flex-direction: column;
+    height: 68vh;
+  }
+  main section#joinUs .container .carousel {
+    flex: 100%;
+    flex-direction: row;
+  }
+  main section#joinUs .container .carousel .carousel-item {
+    width: 33.3333333333%;
+    animation: carousel-animate-vertical 20s linear infinite;
+    overflow: visible;
+  }
+  @keyframes carousel-animate-vertical {
+    0% {
+      transform: translateX(100%) scale(0.2);
+      opacity: 0;
+      visibility: hidden;
+    }
+    2%, 10% {
+      transform: translateX(100%) scale(0.3);
+      opacity: 0.3;
+      visibility: visible;
+    }
+    12%, 20% {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+    22%, 30% {
+      transform: translateX(-100%) scale(0.3);
+      opacity: 0.4;
+      visibility: visible;
+    }
+    32% {
+      transform: translateX(-100%) scale(0.2);
+      opacity: 0;
+      visibility: visible;
+    }
+    100% {
+      transform: translateX(-100%) scale(0.5);
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  main section#joinUs .container .carousel .carousel-item img {
+    height: 35vh;
+  }
+  main section#joinUs .container .content h1.title {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+  main section#joinUs .container .content p {
+    text-align: center;
+  }
+  main section#joinUs .container .content .btn-join {
+    margin: 0 auto;
   }
 }/*# sourceMappingURL=style.css.map */
