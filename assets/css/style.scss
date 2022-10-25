@@ -12,7 +12,14 @@
 $primary : #f69d2d;
 $gray-1 : #e8e8e0;
 $gray-2 : #bab8a9;
+$gray-3 : #d0ccaf;
+$gray-4 : #e2e3d3;
+$gray-5 : #797979;
+$gray-6 : #7e7e64;
+$gray-7 : #6c6c54;
+$gray-8 : #ffffcb;
 $white-1 : #fefefe;
+$white-2: #fffdf0;
 $bg-head-md-sm : #5e5452;
 $tab-ind-shadow-up : #6a6b66;
 $tab-ind-shadow-down : #f9f9f7;
@@ -21,6 +28,21 @@ $tab-ind-shadow-down : #f9f9f7;
 @font-face {
   font-family: clash-regular;
   src: url(../font/clash-regular-webfont.woff2);
+}
+
+@font-face {
+  font-family: supercell-hvy;
+  src: url(../font/supercellheadline-heavy.woff2);
+}
+
+@font-face {
+  font-family: supercell-md;
+  src: url(../font/supercelltext_w_md.woff2);
+}
+
+@font-face {
+  font-family: supercell-rg;
+  src: url(../font/supercelltext_w_rg.woff2);
 }
 
 // Mixin 
@@ -39,6 +61,41 @@ $tab-ind-shadow-down : #f9f9f7;
   width: $w;
   height: $h;
   background: $bg;
+}
+
+@mixin separator($vertical: false) {
+  hr {
+    position: absolute;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    
+    @if ($vertical) {
+      background-color: #959593;
+      width: 3px;
+      top: 0;
+    } @else {
+      right: 0;
+      height: 3px;
+      background-color: #3f3d31;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      background-color: rgba(white, .5);
+      left: 0;
+      bottom: 0;
+      
+      @if ($vertical) {
+        width: 2px;
+        top: 0;
+      } @else {
+        right: 0;
+        height: 2px;
+      }
+    }
+  }
 }
 
 // Keyframes 
@@ -411,6 +468,208 @@ main {
       }
     }
   }
+
+  section#clan {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 2.5rem;
+      padding-top: 1rem;
+
+      article {
+        &.definition {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 1.3rem;
+          background: $white-2;
+          border-radius: 1rem;
+          box-shadow: 0 8px 2px $gray-3, 1px 0 8px rgba(black, .5);
+
+          h3 {
+            font-family: supercell-hvy;
+            text-transform: capitalize;
+            font-weight: bold;
+            padding-bottom: 1rem;
+            text-align: center;
+          }
+
+          .clan-image {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: inherit;
+            width: 180px;
+            background: $gray-4;
+            padding: 1.5rem 0;
+
+            img {
+              width: 100px;
+              z-index: 1;
+              filter: drop-shadow(3px 3px 8px $gray-5);
+            }
+
+            svg {
+              position: absolute;
+
+              .c-bg {
+                fill: none;
+                stroke-width: 99.7%;
+                stroke-dasharray: 10;
+                stroke: url(#grad);
+                animation: rotate 30s infinite linear;
+                transform-origin: 50px 50px;
+              }
+            }
+          }
+
+          p {
+            font-family: supercell-rg;
+            padding: 1.3rem 0;
+            font-weight: bold;
+
+            span {
+              color: $primary;
+            }
+          }
+        }
+
+        &.detail {
+          padding: 1.5rem 1.3rem;
+          background: $gray-6;
+          background-image: url(../images/map_2.png);
+          background-position: left;
+          background-size: cover;
+          border-radius: 1rem;
+          box-shadow: 0 8px 2px $gray-7, 1px 0 8px rgba(black, .5);
+          @include separator();
+
+          .clan-header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            img {
+              width: 80px;
+            }
+
+            div {
+              color: $gray-8;
+              @include tmplTextShadow();
+
+              h3 {
+                font-size: 1.3rem;
+              }
+
+              span {
+                padding: .7rem 0;
+                text-transform: uppercase;
+                font-family: supercell-md;
+                font-weight: bold;
+              }
+            }
+          }
+
+          .clan-detail {
+            margin-top: 1rem;
+
+            .category {
+              display: flex;
+              flex-direction: row;
+              position: relative;
+              align-items: center;
+              justify-content: space-between;
+              padding: .35rem .5rem .5rem;
+              font-family: supercell-md;
+              font-weight: bold;
+              text-transform: capitalize;
+              color: white;
+              @include tmplTextShadow($y1: 3px, $y2: 2px);
+
+              .throphies {
+                display: flex;
+                flex-direction: row;
+
+                span {
+                  display: flex;
+                  align-items: flex-end;
+                  margin-left: 1rem;
+
+                  img {
+                    height: 1.5rem;
+                    margin: 0 .2rem;
+
+                    &.th-vs {
+                      height: 1.4rem;
+                    }
+                  }
+                }
+              }
+              
+            }
+          }
+
+          .war-stat {
+            position: relative;
+            margin-top: 1.5rem;
+
+            .title {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+
+              img {
+                width: 30px;
+                margin-right: 6px;
+              }
+
+              h4 {
+                color: white;
+                @include tmplTextShadow();
+              }
+            }
+
+            .details {
+              display: flex;
+              align-items: center;
+              padding-top: 1rem;
+
+              div {
+                flex: auto;
+                align-items: center;
+                padding: .5rem;
+                @include tmplTextShadow($y1: 3px, $y2: 2px);
+
+                &.wins {
+                  color: #d0efb3;
+                }
+
+                &.losses {
+                  color: #f9c7c6;
+                }
+
+                &.draws {
+                  color: #ccc;
+                }
+
+                &.total {
+                  color: $gray-8;
+                }
+
+                span {
+                  display: block;
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // Media Queries
@@ -525,12 +784,20 @@ main {
         }
       }
     }
+
+    section#clan {
+      .container {
+        padding: 1rem 10% 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+      }
+    }
   }
 }
 
 @media (max-width: 600px) {
   section {
-    padding: 2rem .6rem;
+    padding: 2rem .5rem;
   }
 
   header {
@@ -620,6 +887,29 @@ main {
 
             .couche2 .couche2-3 .couche3 .couche4 .getStarted {
               font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    section#clan {
+      .container {
+        gap: 1.7rem;
+        padding: 1rem .35rem;
+
+        article {
+          &.detail {
+            background-position: center;
+
+            .clan-detail {
+              font-size: .9rem;
+            }
+
+            .war-stat {
+              .details {
+                font-size: .85rem;
+              }
             }
           }
         }
