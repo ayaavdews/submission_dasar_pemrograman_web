@@ -1591,13 +1591,11 @@ main {
   }
 
   section#faq {
-
     .container {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       width: 100%;
-
       $height: 65vh;
 
       .faq-list {
@@ -1620,7 +1618,7 @@ main {
           h2.title {
             text-align: center;
             letter-spacing: .5rem;
-            padding: 1rem 0;
+            padding: .7rem 0;
             color: white;
             @include tmplTextShadow();
           }
@@ -1633,7 +1631,6 @@ main {
         
         ul.question-list {
           display: flex;
-
           justify-content: center;
           flex-direction: column;
           width: 70%;
@@ -1666,9 +1663,9 @@ main {
                 left: 50%;
                 transform: translateX(-50%);
                 width: 97%;
-                height: 22px;
+                height: 23px;
                 border-radius: .35rem;
-                top: 5px;
+                top: 7px;
               }
             }
 
@@ -1773,6 +1770,8 @@ main {
         padding-left: 1rem;
         
         .container-2 {
+          display: flex;
+          flex-direction: column;
           position: relative;  
           width: 100%;
           height: $height;
@@ -1804,9 +1803,10 @@ main {
 
           .content {
             display: flex;
+            position: relative;
             flex-direction: column;
             align-items: center;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
             height: 100%;
 
@@ -1877,7 +1877,7 @@ main {
             }
   
             .contact {
-              margin-top: 1rem;
+              margin-top: auto;
               font-family: supercell-md;
               font-weight: bold;
               color: $gray-5;
@@ -1889,6 +1889,7 @@ main {
   
                 div {
                   display: flex;
+                  position: relative;
                   align-items: center;
                   justify-content: center;
                   width: 45px;
@@ -1906,8 +1907,18 @@ main {
                     width: 80%;
                   }
 
+                  a {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    text-decoration: none;
+                    -webkit-tap-highlight-color: transparent;
+                  }
+
                   &:active {
-                    user-select: none;
                     transform: translateY(2px);
                     -webkit-tap-highlight-color: transparent;
                     transform: transateY(2px);
@@ -1923,6 +1934,17 @@ main {
       }
     }
   }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: white;
+  font-family: supercell-hvy;
+  font-weight: bold;
+  padding: 1rem;
 }
 
 // Media Queries
@@ -2355,6 +2377,10 @@ main {
             width: 100%;
             height: auto;
 
+            h2.title {
+              letter-spacing: .2rem;
+            }
+
             img.otto {
               width: auto;
               height: 60px;
@@ -2364,6 +2390,10 @@ main {
           
           ul.question-list {
             width: 100%;
+
+            .li-item {
+              font-size: .9rem;
+            }
           }
         }
 
@@ -2373,7 +2403,7 @@ main {
           width: 90%;
 
           .container-2 {
-            height: auto;
+            height: calc($height * 0.7);
 
             span.couche1 {
               width: 95%;
@@ -2666,5 +2696,28 @@ main {
         }
       }
     }
+
+    section#faq {
+      .container {
+        .faq-list {
+          width: 100%;
+          ul.question-list {
+            li.item {
+              .wrapper p.question, p.answer {
+                font-size: .85rem;
+              }
+            }
+          }
+        }
+
+        aside.about {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  footer {
+    font-size: .85rem;
   }
 }
