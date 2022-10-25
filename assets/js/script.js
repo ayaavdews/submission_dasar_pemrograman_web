@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navlinks[i].addEventListener('click', function(e) {
       handleNavChange(this);
       e.preventDefault()
-      // fitScroll(this.getAttribute('href'))
+      fitScroll(this.getAttribute('href'))
     })
   }
 
