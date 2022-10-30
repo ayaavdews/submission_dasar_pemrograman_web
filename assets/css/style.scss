@@ -558,7 +558,7 @@ main {
                          'home-img home-img home-val';
     padding-top: 5rem;
     height: 100vh;
-    background-image: url(../images/bg_home.jpg);
+    background-image: url(../images/bg_home.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -777,7 +777,7 @@ main {
         &.detail {
           padding: 1.5rem 1.3rem;
           background: $gray-6;
-          background-image: url(../images/map_2.png);
+          background-image: url(../images/map_2.webp);
           background-position: left;
           background-size: cover;
           border-radius: 1rem;
@@ -1411,7 +1411,7 @@ main {
             justify-content: center;
             width: $width;
             padding: 2rem 0;
-            background-image: url(../images/bg_cwl.png);
+            background-image: url(../images/bg_cwl.webp);
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -1944,6 +1944,7 @@ footer {
   color: white;
   font-family: supercell-hvy;
   font-weight: bold;
+  margin-top: 2rem;
   padding: 1rem;
 }
 
@@ -2143,7 +2144,7 @@ footer {
       right: 0;
       gap: 1rem;
       background: $gray-1;
-      background-image: url(../images/map.png);
+      background-image: url(../images/map.webp);
       background-position: center;
       background-size: cover;
       padding: 2rem 0;

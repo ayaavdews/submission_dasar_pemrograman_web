@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const navlinks = document.querySelectorAll('.navlink')
   const tabInd = document.querySelector('.tab-indicator')
   const menuBtn = document.querySelector('#menu-btn')
+  let sections     = document.querySelectorAll('section')
 
   let HomeHeigt = document.querySelector('.home-title').offsetHeight
   window.onscroll = () => {
     (window.scrollY > HomeHeigt-50) ? header.classList.add('shadow') : header.classList.remove('shadow');
+    const current = sections.length - [...sections].reverse().findIndex((section) => window.scrollY >= section.offsetTop - convertRemToPixels(5)) - 1
+    console.log(current)
   }
 
   menuBtn.addEventListener('click', () => {
